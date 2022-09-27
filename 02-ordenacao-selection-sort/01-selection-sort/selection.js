@@ -1,13 +1,16 @@
 const livros = require('../../01-pensando-em-algoritmos/01-pensando-em-algoritmos/Livros.js')
-const menorValor = require('./menorValor')
 
-for (let atual = 0; atual < livros.length; atual++){
-    let menor = menorValor(livros, atual)
-    let livroAtual = livros[atual]
-    let livroMenorPreco = livros[menor]
+function selectionSort(arrProdutos){
+    const menorValor = require('./menorValor')
 
-    livros[atual] = livroMenorPreco
-    livros[menor] = livroAtual
- }
+    for (let atual = 0; atual < arrProdutos.length; atual++) {
+        let menor = menorValor(arrProdutos, atual)
+        let livroAtual = arrProdutos[atual]
+        let livroMenorPreco = arrProdutos[menor]
 
-console.log(livros)
+        arrProdutos[atual] = livroMenorPreco
+        arrProdutos[menor] = livroAtual
+    }
+}
+
+module.exports = selectionSort
